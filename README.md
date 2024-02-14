@@ -12,7 +12,7 @@ KitchenSync is designed for busy individuals, families, and small firms that str
 
 <table style="width:100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td align="center" valign="center"><img src="Hemanvitha.jpg" width="250"><br />Hemanvitha Mylapalli(<a href="mailto:student pace email id)">hm18290n@pace.edu</a>)</td>
+    <td align="center" valign="center"><img src="Team Members/Hemanvitha.jpg" width="250"><br />Hemanvitha Mylapalli(<a href="mailto:student pace email id)">hm18290n@pace.edu</a>)</td>
     <td align="center" valign="center"><img src="Team Members/" width="250"><br />Yuga Kapil Krishna Maytharametla(<a href="mailto:student pace email id">ym17761n@pace.edu</a>)</td>
     <td align="center" valign="center"><img src="Team Members/" width="250"><br />Neha Srinivasaiah(<a href="mailto:student pace email id">ns4177n@pace.edu</a>)</td>
   </tr>
