@@ -51,13 +51,13 @@ Imagine a system that knows your kitchen or grocery shelf as well as you do, may
           
  
 ### Tools          
- <table style="width:100%" border="0" cellspacing="0" cellpadding="0">
+ <table>
   <tr>
-<td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"  height = "10%" width = "10%" />   </td>  
-<td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" height = "10%" width = "10%" /></td>
-<td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" height = "10%" width = "10%" /></td>
-<td><img src="https://github.com/htmw/2024S-neon-nomads/blob/main/github.png" height = "10%" width ="10%" /></td> 
-<td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" height = "10%" width = "10%" /></td>
+<td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"   />   </td>  
+<td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg"  /></td>
+<td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" /></td>
+<td><img src="https://github.com/htmw/2024S-neon-nomads/blob/main/github.png"  /></td> 
+<td><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg"  /></td>
   </tr></table>
 ***
 
