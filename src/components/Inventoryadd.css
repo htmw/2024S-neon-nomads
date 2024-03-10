@@ -1,0 +1,52 @@
+.maincontainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #c9e0c2;
+  justify-content: space-around;
+}
+.inputdiv {
+  width: 70vw;
+  height: 20vh;
+  background-color: bisque;
+  border: 2px solid brown;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 5px grey;
+}
+
+.additemform {
+  display: flex;
+  justify-content: space-between;
+  width: 27vw;
+}
+
+.displaydiv {
+  width: 70vw;
+  height: 40vh;
+  overflow-y: auto;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 5px grey;
+  background-color: #bbbee0;
+}
+
+input {
+  width: 15vw;
+  height: 3vh;
+  background-color: white;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+button {
+  width: 8vw;
+  border-radius: 15px;
+}
