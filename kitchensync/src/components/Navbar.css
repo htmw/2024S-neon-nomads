@@ -3,9 +3,12 @@
   padding: 0;
 }
 
-.loginbox {
+.navgbar {
+  background-color: black;
+  color: white;
+  font-family: pacifico;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
 }
