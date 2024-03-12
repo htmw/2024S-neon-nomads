@@ -17,8 +17,9 @@
   align-items: center;
   flex-direction: column;
   width: max-content;
-  height: max-content;
+  height: auto;
   padding: 9vh;
+  padding-bottom: 13vh;
   border-radius: 2vh;
   border: 4px solid brown;
 }
@@ -36,7 +37,7 @@
   margin-top: 4vh;
 }
 
-form {
+.loginform {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -52,14 +53,15 @@ input {
   border: 1px solid brown;
 }
 
-button {
+.loginbtns {
   width: max-content;
   height: max-content;
   padding: 15px;
   padding-left: 30px;
   padding-right: 30px;
-  background-color: rgb(50, 50, 126);
-  color: white;
+  background-color: rgb(208, 193, 241);
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
   border-radius: 30px;
   margin-top: 4vh;
   border: 2px solid cyan;

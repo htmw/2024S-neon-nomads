@@ -23,7 +23,7 @@ function Login() {
       </div>
       <div className="formcontainer">
         <h2>Login</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="loginform">
           <div className="field">
             <input
               type="text"
@@ -31,7 +31,7 @@ function Login() {
               value={username}
               placeholder="Username"
               onChange={(e) => setUsername(e.target.value)}
-              required
+              // required
             />
           </div>
           <div className="field">
@@ -42,12 +42,15 @@ function Login() {
               value={password}
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
-              required
+              // required
             />
           </div>
 
-          <button type="submit">
+          <button type="submit" className="loginbtns">
             <Link to={"/inventory"}>Login</Link>
+          </button>
+          <button type="submit" className="loginbtns">
+            <Link to={"/register"}>New User ?</Link>
           </button>
         </form>
       </div>

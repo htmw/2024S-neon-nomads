@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Inventoryadd from "./components/Inventoryadd";
+import Userregistration from "./components/Userregistration";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/inventory",
     element: <Inventoryadd />,
+  },
+  {
+    path: "/register",
+    element: <Userregistration />,
   },
 ]);
 

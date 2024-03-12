@@ -33,20 +33,22 @@ function Inventoryadd() {
         <div className="inputdiv">
           <div className="additemform">
             <input type="text" onChange={handleChange}></input>
-            <button onClick={addTask}>Add Item</button>
+            <button onClick={addTask} class="addtaskbtn">
+              Add Item
+            </button>
           </div>
         </div>
 
         <h2>Your Inventory List : </h2>
-        <div
-          className="displaydiv"
-          style={{ backgroundColor: task.completed ? "green" : "white" }}>
+        <div className="displaydiv">
           {toDoList.map((task) => {
             return (
-              <div>
+              <div className="inventorylist">
                 <div className="comptask">
                   <p>{task.taskName}</p>
-                  <button onClick={() => deleteTask(task.id)}>
+                  <button
+                    onClick={() => deleteTask(task.id)}
+                    class="deltaskbtn">
                     Delete Item
                   </button>
                 </div>

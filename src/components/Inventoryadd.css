@@ -23,6 +23,7 @@
   display: flex;
   justify-content: space-between;
   width: 27vw;
+  align-items: center;
 }
 
 .displaydiv {
@@ -32,10 +33,10 @@
   border: 2px solid black;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   box-shadow: 3px 5px grey;
-  background-color: #bbbee0;
+  background-color: #dee0f7;
 }
 
 input {
@@ -46,7 +47,30 @@ input {
   border-radius: 15px;
 }
 
-button {
+.addtaskbtn {
   width: 8vw;
   border-radius: 15px;
+  height: 4vh;
+}
+
+.comptask {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 20vw;
+  height: auto;
+  padding: 1.5vh;
+  border: 1px solid green;
+  background-color: #fff;
+}
+
+.deltaskbtn {
+  background-color: rgb(171, 188, 119);
+  height: 0.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8vw;
+  border-radius: 15px;
+  height: 4vh;
 }

@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.urbody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.urcontainer {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 60vh;
+  width: 35vw;
+  background-color: #e4c8c8;
+  margin-top: 2vh;
+}
+
+.regform {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 58vh;
+}
+
+.regsubmitbtn {
+  height: 5vh;
+  width: 12vh;
+  background-color: lightgoldenrodyellow;
+  border-radius: 15px;
+}
