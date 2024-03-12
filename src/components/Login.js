@@ -47,7 +47,7 @@ function Login() {
           </div>
 
           <button type="submit">
-            <a href="./Inventoryadd">Login</a>
+            <Link to={"/inventory"}>Login</Link>
           </button>
         </form>
       </div>
