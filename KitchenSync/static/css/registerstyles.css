@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: black;
+  color: white;
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100vw;
+  height: 82vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/Untitled.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+.innercontainer {
+  width: 33vw;
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid green;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.98;
+  background-color: rgb(223, 176, 119);
+  border-radius: 10px;
+  box-shadow: 15px 18px 18px grey;
+}
+
+.registerform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+input {
+  width: 15vw;
+  height: 4vh;
+  margin: 20px;
+  padding: 0.8vh;
+  background-color: bisque;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#submit {
+  width: 15vw;
+  height: 5vh;
+  padding: 0.9vh;
+  background-color: orange;
+  cursor: pointer;
+  font-weight: bolder;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+#submit:hover {
+  background-color: rgb(201, 239, 220);
+}
+
+footer {
+  background-color: black;
+  color: white;
+  width: 100vw;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
