@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Know-Before-You-Eat
+An Interactive web application for identifying food names based on the images, providing nutritional facts (For eg: calculating calories of the food you're eating) for diet advice and predicting the recipes based on the predicted food names.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+![Home Page Pic](KnowBeforeYouEat.png)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## <ins> Source Data </ins>
 
-### `npm test`
+1) Food101 Dataset
+https://www.vision.ee.ethz.ch/datasets_extra/food-101/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2) Nutritional Facts 
+https://www.fatsecret.com/calories-nutrition/
+http://ahealthylifeforme.com
 
-### `npm run build`
+3) Recipe
+https://www.kaggle.com/kaggle/recipie-ingredients-dataset
+https://en.wikipedia.org/wiki/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## <ins> Tools/Models Reference </ins>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1) Classification/Training Models
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   > Transfer Learning With MobileNet 
+   
+   > Transfer Learning With VGG16
+   
+   > KNN & Random Forest
 
-### `npm run eject`
+2) Keras Image Data Generator for Image Augmentation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3) Front End Application - HTML, CSS, Bootstrap and Javascript
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4) Retrieving Data From Back End : Python (SQLAlchemy and Flask)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5) Missing Link AI - Platform to Run deep learning experiments on hundreds of machines, on and off the cloud, manage huge data sets and gain unprecedented visibility into your experiments.
+https://missinglink.ai/
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## <ins> Results </ins>
+1) After fine-tuning a pre-trained MobileNet model achieved about 99.03% Top-1 Accuracy on the Training set and about 73% accuracy on Valid & test data.
+2) After fine-tuning a pre-trained VGG16 model achieved about 98.03% Top-1 Accuracy on the Training set and about 70% accuracy on Valid & test data.
+3) Using KNN  Algorithm achieved at score:0.404 at K=3
+4) Using Random Forest Model achieved at score:0.2
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## <ins> Key TakeAways </ins>
+1) Through application of Various Machine Learning Algorithms - K-Nearest Neighbors, Random Forest Classification and Deep Learning(CNN) Algorithms for image classification we concluded that CNN is the best model for classification of images in our data set.
+2) In CNN pretrained models  Mobilenet model is the best in terms of both speed and accuracy in our dataset.
+3) MobileNet is the best method and quickest way to implement transfer learning for CNN’s.
