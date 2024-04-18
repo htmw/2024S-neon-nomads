@@ -16,6 +16,7 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
+from datetime import datetime, timedelta
 
 from datetime import date
 from flask import jsonify
@@ -110,6 +111,61 @@ def prepare_image(img_path):
     x = np.expand_dims(x, axis=0)
     return x
 
+#caution code start
+FOOD_RECIPES_FILE_PATH = "static/food_list/Food_recipes_kitchensync.csv" 
+
+def get_recipe_recommendations(expiring_items):
+    # Read the Excel file into a DataFrame
+    recipes_df = pd.read_csv(FOOD_RECIPES_FILE_PATH)
+
+    # Initialize an empty list to store recommended recipes
+    recommended_recipes = []
+
+    # Iterate over each expiring item
+    for item in expiring_items:
+        # Get recipes that contain the expiring item as an ingredient
+        matching_recipes = recipes_df[recipes_df['Ingredients'].str.contains(item)]
+
+        # If there are matching recipes, add them to the recommended recipes list
+        if not matching_recipes.empty:
+            for _, recipe in matching_recipes.iterrows():
+                # Check if the recipe is already in the recommended recipes list
+                if recipe.Title not in [rec['title'] for rec in recommended_recipes]:
+                    # Append the title, ingredients, and instructions to the recommended recipes list
+                    recommended_recipes.append({
+                        'title': recipe.Title,
+                        'ingredients': recipe.Ingredients,
+                        'instructions': recipe.Instructions
+                    })
+
+    # Return the list of recommended recipes, limited to 5 recipes
+    return recommended_recipes[:5]
+
+
+
+def get_expiring_items(items):
+    print("Items:", items)  # Add this line for debugging
+
+    # Get the current date
+    current_date = datetime.now().date()
+
+    # Calculate the number of days until expiry for each item
+    for item in items:
+        item.days_until_expiry = (item.expiry_date - current_date).days
+
+    # Sort the items by days until expiry in ascending order
+    sorted_items = sorted(items, key=lambda x: x.days_until_expiry)
+
+    # Get the top 3 expiring items
+    expiring_items = sorted_items[:3]
+
+    # Extract the names of the expiring items
+    expiring_item_names = [item.item_name for item in expiring_items]
+
+    return expiring_item_names
+
+#caution code end
+
 
 @app.route('/')
 def home():
@@ -141,8 +197,62 @@ def dashboard():
         flash('Item added successfully!', 'success')
         return redirect(url_for('dashboard'))
     else:
+        # items = Inventory.query.filter_by(user_id=current_user.id).all()
+        # expiring_items = []
+        # for item in items:
+        #     days_until_expiry = (item.expiry_date - datetime.now().date()).days
+        #     expiring_items.append((item.item_name, days_until_expiry))
+        # # Sort expiring_items based on days_until_expiry
+        # expiring_items.sort(key=lambda x: x[1])
+        # # Take the top 3 items
+        # expiring_items = expiring_items[:3]
+
+        # Get items from inventory
         items = Inventory.query.filter_by(user_id=current_user.id).all()
-        return render_template('dashboard.html', items=items)
+
+        # Get top 3 expiring items
+        expiring_items = get_expiring_items(items)
+
+        # Get recommended recipes based on expiring items
+        recommended_recipes = get_recipe_recommendations(expiring_items)
+
+        return render_template('dashboard.html', items=items, expiring_items=expiring_items, recommended_recipes=recommended_recipes)
+
+        # return render_template('dashboard.html', items=items, expiring_items=expiring_items)
+
+
+# New route and function to fetch expiring items information
+@app.route('/fetch_expiring_items_info', methods=['POST'])
+def fetch_expiring_items_info():
+    # Get expiring items from the request
+    expiring_items = request.json.get('expiring_items', [])
+
+    # Initialize an empty list to store expiring items information
+    expiring_items_info = []
+
+    # Get the current date
+    current_date = datetime.now().date()
+
+    # Calculate the number of days until expiry for each item
+    for item in expiring_items:
+        # Convert item to string
+        item_str = str(item)
+
+        # Get the expiry date from the database
+        expiry_date = Inventory.query.filter_by(item_name=item_str).first().expiry_date
+
+        # Calculate the days until expiry
+        days_until_expiry = (expiry_date - current_date).days
+
+        # Append the item and days_until_expiry to the expiring items info list
+        expiring_items_info.append({
+            'item': item_str,
+            'days_until_expiry': days_until_expiry
+        })
+
+    # Return the list of expiring items information
+    return jsonify(expiring_items_info)
+
 
 
 @app.route('/add_task', methods=['POST'])
@@ -205,6 +315,17 @@ def register():
         return redirect(url_for('login'))
 
     return render_template('register.html', form=form)
+
+@app.route('/get_recipes')
+def get_recipes():
+    # Get top 3 expiring items
+    items = Inventory.query.filter_by(user_id=current_user.id).all()
+    expiring_items = get_expiring_items(items)
+    
+    # Get recommended recipes based on expiring items
+    recommended_recipes = get_recipe_recommendations(expiring_items)
+
+    return jsonify(recommended_recipes)
 
 
 @app.route("/predictthedish", methods=["GET"])

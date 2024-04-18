@@ -96,3 +96,27 @@ ul {
 li {
   margin-left: 3vw;
 }
+
+#recipe-container {
+  display: none; /* Hide the container by default */
+  width: 80vw;
+  padding: 4vw;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: rgb(234, 255, 196);
+}
+
+#how-to-use-button {
+  width: 10vw;
+  height: 6vh;
+  padding: 1vh;
+}
+
+#how-to-use-button:hover {
+  width: 10vw;
+  height: 6vh;
+  padding: 1vh;
+  background-color: aqua;
+}
