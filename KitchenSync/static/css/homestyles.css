@@ -41,7 +41,7 @@ nav {
 }
 
 .innercontainer {
-  width: 35vw;
+  width: 30vw;
   height: 40vh;
   background-color: rgba(255, 228, 196, 0.85);
   display: flex;
@@ -75,4 +75,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+h2.navtitle {
+justify-content: center;
+  /* font-weight: 1000; */
 }

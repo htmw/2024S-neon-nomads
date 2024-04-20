@@ -11,11 +11,11 @@
   <body>
     <nav>
       <h2 class="navtitle">KitchenSync</h2>
-      <div class="navoptions">
+      <div>
         <ul>
-          <li><a href="{{url_for('home')}}">Home</a></li>
-          <li><a href="{{url_for('predictthedish')}}">Predict Dish</a></li>
-          <li><a href="{{url_for('logout')}}">Logout</a></li>
+          <li><a class="navoptions" href="{{url_for('home')}}">Home</a></li>
+          <li><a class="navoptions" href="{{url_for('predictthedish')}}">Predict Dish</a></li>
+          <li><a class="navoptions" href="{{url_for('logout')}}">Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -31,13 +31,13 @@
           required />
         <button type="submit">Add Item</button>
       </form>
-      <br />
-      <a href="{{url_for('logout')}}">Press here to logout</a>
-      <br />
-      <br />
+      <!-- <br /> -->
+      <!-- <a href="{{url_for('logout')}}">Press here to logout</a> LOGOUT HERE IS UN-NECESSARY-->
+      <!-- <br /> -->
+      <!-- <br /> -->
       <h2>Your Inventory List :</h2>
       <br />
-      <div class="tablecont">
+      <div class="container2"style="overflow-x:auto;">
         <table id="inventoryTable">
           <thead>
             <tr>
@@ -49,8 +49,8 @@
           <tbody>
             {% for item in items %}
             <tr>
-              <td>{{ item.item_name }}</td>
-              <td>{{ item.expiry_date }}</td>
+              <td class="tablecont">{{ item.item_name }}</td>
+              <td class="tablecont">{{ item.expiry_date }}</td>
               <td>
                 <button class="deletebtn" onclick="deleteItem('{{ item.id }}')">
                   Delete
@@ -62,8 +62,8 @@
         </table>
       </div>
     </div>
-    <footer>
-      <h4>Thank you for visiting us !</h4>
+    <footer class="footer">
+      <h4 class="footertext">Thank you for visiting us !</h4>
     </footer>
 
     <script>
