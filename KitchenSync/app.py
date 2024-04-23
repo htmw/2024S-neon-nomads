@@ -124,10 +124,14 @@ def login():
         if user:
             if bcrypt.check_password_hash(user.password, form.password.data):
                 login_user(user)
-                return redirect(url_for('dashboard'))
+                return redirect(url_for('inventory'))
     return render_template('login.html', form=form)
 
 # star code new start
+
+@app.route('/inventory')
+def inventory():
+    return render_template('Inventory.html')
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 @login_required

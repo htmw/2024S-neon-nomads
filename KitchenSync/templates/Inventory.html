@@ -6,7 +6,7 @@
     <title>Inventory</title>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/dashboardstyles.css') }}" />
+      href="{{ url_for('static', filename='css/Inventory.css') }}" />
   </head>
   <body>
     <nav>
@@ -22,19 +22,36 @@
     <div class="container">
       <h1>Manage Your Inventory</h1>
       <br />
-      <form id="inventoryForm" action="/add_task" method="POST">
-        <input type="text" name="item_name" placeholder="Item Name" required />
-        <input
-          type="date"
-          name="expiry_date"
-          placeholder="Expiry Date"
-          required />
-        <button type="submit">Add Item</button>
+      <form class = "form-container" id="inventoryForm" action="/add_task" method="POST">
+      <!--Item Name -->
+      <label for ="item_name">Item Name</label>
+        <input type="text" id="item_name" name="item_name" placeholder="Item Name" required /><br>
+       <!-- Purchase Date -->
+       <label for "purchase_date">Purchase Date</label>
+        <input type ="date" id = "purchase_date" name = "purchase_date" placeholder = "Purchase Date" required/><br>
+        <!-- Expiry Date -->
+        <label for = "date" name = "expiry_date">Expiry Date</label>
+        <input type="date" name="expiry_date" placeholder="Expiry Date"/><br>
+        <!-- Category -->
+        <label for = "category">Category</label>
+          <input list = "categories" name = "category" id = "category"/>
+          <datalist id = "categories" >
+              <option value = "Baking"></option>
+              <option value = "Grains and Starches"></option>
+              <option value = "Oils and Vinegers"></option>
+              <option value = "Vegetables"></option>
+              <option value = "Frozen Foods"></option>
+              <option value = "Meat"></option>
+              <option value = "Canned and Jarred Goods"></option>
+              <option value = "Condiments and Sauces"></option>
+              <option value = "Spices, Herbs and Seasonings"></option>
+          </datalist><br>
+          <!--  Price -->
+          <label for = "price">Price</label>
+          <input type = "text" name = "price" placeholder ="$" required/>
+        <button class = "button" type="submit">Add Item</button>
       </form>
-      <!-- <br /> -->
-      <!-- <a href="{{url_for('logout')}}">Press here to logout</a> LOGOUT HERE IS UN-NECESSARY-->
-      <!-- <br /> -->
-      <!-- <br /> -->
+     
       <h2>Your Inventory List :</h2>
       <br />
       <div class="container2"style="overflow-x:auto;">
@@ -43,6 +60,8 @@
             <tr>
               <th class="tablehead">Item Name</th>
               <th class="tablehead">Expiry Date</th>
+              <th class="tablehead">Category</th>
+              <th class="tablehead">Price</th>
               <th class="tablehead"></th>
             </tr>
           </thead>
@@ -51,6 +70,8 @@
             <tr>
               <td class="tablecont">{{ item.item_name }}</td>
               <td class="tablecont">{{ item.expiry_date }}</td>
+              <td class="tablecont">{{item.category}}</td>
+              <td class="tablecont">{{item.price}}</td>
               <td>
                 <button class="deletebtn" onclick="deleteItem('{{ item.id }}')">
                   Delete

@@ -44,7 +44,7 @@ input {
   border-radius: 10px;
 }
 
-button {
+.button {
   width: 7.5vw;
   height: 5vh;
   padding: 0.9vh;
