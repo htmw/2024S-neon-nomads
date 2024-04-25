@@ -9,7 +9,7 @@ nav {
   width: 100vw;
   height: 10vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -79,4 +79,18 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.navoptions {
+  /* position: absolute; */
+  right: 1px;
+  color: #fac564;
+}
+h2.navtitle {
+  margin-left: 1vw;
+  text-align: center;
+}
+ul {
+  list-style-type: none;
+  display: flex;
+  margin-right: 2vw;
 }
