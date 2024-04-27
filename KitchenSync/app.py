@@ -111,6 +111,8 @@ def prepare_image(img_path):
     return x
 
 
+
+
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -124,11 +126,28 @@ def login():
         if user:
             if bcrypt.check_password_hash(user.password, form.password.data):
                 login_user(user)
-                return redirect(url_for('dashboard'))
+                return redirect(url_for('inventory'))
     return render_template('login.html', form=form)
 
 # star code new start
 
+@app.route('/inventory' , methods=['POST'])
+@login_required
+def inventory():
+    if request.method == 'POST':
+            item_name = request.form['item_name']
+            expiry_date = request.form['expiry_date']
+            category = request.form['category']
+            price = request.form['price']
+            db.session.add(new_item)
+            db.session.commit()
+            flash('Item added successfully!', 'success')
+            return redirect(url_for('inventory'))
+        else:
+            items = Inventory.query.filter_by(user_id=current_user.id).all()
+            return render_template('Inventory.html', items=items)
+
+"""
 @app.route('/dashboard', methods=['GET', 'POST'])
 @login_required
 def dashboard():
@@ -143,29 +162,32 @@ def dashboard():
     else:
         items = Inventory.query.filter_by(user_id=current_user.id).all()
         return render_template('dashboard.html', items=items)
-
+"""
 
 @app.route('/add_task', methods=['POST'])
 def add_task():
     item_name = request.form['item_name']
     expiry_date_str = request.form['expiry_date']
-    
+    category = request.form['category']
+    price_str = request.form['price']
     # Print out the expiry_date_str to see its format
     print("Expiry Date String:", expiry_date_str)
 
     # Convert the expiry_date string to a Python date object
     expiry_date = date.fromisoformat(expiry_date_str)
 
+     # Print out the price_str to see its format
+        print("Price String:", price_str)
+
+        # Convert the expiry_date string to a Python date object
+        price_date = date.fromisoformat(price_str)
+
     # Insert the item into the inventory table
-    new_item = Inventory(user_id=current_user.id, item_name=item_name, expiry_date=expiry_date)
+    new_item = Inventory(user_id=current_user.id, item_name=item_name, expiry_date=expiry_date,category=category, price=price)
     db.session.add(new_item)
     db.session.commit()
 
     return jsonify({'message': 'Item added successfully'})
-
-
-
-
 
 @app.route('/delete_item', methods=['POST'])
 def delete_item():
@@ -326,3 +348,4 @@ if __name__ == "__main__":
     app.run(debug=True)
     http_server = WSGIServer(("0.0.0.0", 5000), app)
     http_server.serve_forever()
+
