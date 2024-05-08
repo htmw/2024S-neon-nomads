@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: black;
+  color: white;
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100vw;
+  height: 82vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://lmg-architects.com/wp-content/uploads/2019/10/Kitchen-Sync_Main-Dining.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+.container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Adjust the opacity of the image to make it transparent */
+  z-index: -1;
+}
+
+.innercontainer {
+  width: 35vw;
+  height: 40vh;
+  background-color: rgba(255, 228, 196, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 20px whitesmoke;
+}
+
+button {
+  width: 10vw;
+  height: 6vh;
+  background-color: orange;
+  font-weight: bolder;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(201, 239, 220);
+}
+
+footer {
+  background-color: black;
+  color: white;
+  width: 100vw;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
