@@ -11,11 +11,11 @@
   <body>
     <nav>
       <h2 class="navtitle">KitchenSync</h2>
-      <div class="navoptions">
+      <div>
         <ul>
-          <li><a href="{{url_for('home')}}">Home</a></li>
-          <li><a href="{{url_for('predictthedish')}}">Predict Dish</a></li>
-          <li><a href="{{url_for('logout')}}">Logout</a></li>
+          <li><a class="navoptions" href="{{url_for('home')}}">Home</a></li>
+          <li><a class="navoptions" href="{{url_for('predictthedish')}}">Predict Dish</a></li>
+          <li><a class="navoptions" href="{{url_for('logout')}}">Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -32,11 +32,11 @@
           required />
         <button type="submit">Add Item</button>
       </form>
-      <br />
-      <br />
+      <!-- <br />
+      <br /> -->
       <h2>Your Inventory List :</h2>
       <br />
-      <div class="tablecont">
+      <div class="container2"style="overflow-x:auto;">
         <table id="inventoryTable">
           <thead>
             <tr>
@@ -60,27 +60,28 @@
           </tbody>
         </table>
       </div>
-      <br/>
-      <br/>
+      </div>
+      <!-- <br/>
+      <br/> -->
       <!-- Display top 3 items that are going to expire soon -->
-
-
-      <h2>Items Expiring Soon:</h2>
-      <br/>
+      <div id="recipe-container">
+      <!-- <div class="container3"></div> -->
+      <h2 class="invlist">Items Expiring Soon:</h2>
+      <!-- <br/> -->
       {% for item in expiring_items %}
       <p>{{ item }} is expiring soon</p>
       {% endfor %}
-      <br /><br />
-      <h2>Recipes with Expiring Items:</h2>
+      <!-- <br /><br /> -->
+      <h2 class="invlist">Recipes with Expiring Items:</h2>
       <br/>
       <button id="how-to-use-button">How do I use them?</button>
       <br/>
       <br/>
-      <div id="recipe-container"></div>
+      </div>
 
-    <footer>
-      <h4>Thank you for visiting us !</h4>
-    </footer>
+      <footer class="footer">
+        <h4 class="footertext">Thank you for visiting us !</h4>
+      </footer>
 
     <script>
       // Function to handle form submission for adding items
